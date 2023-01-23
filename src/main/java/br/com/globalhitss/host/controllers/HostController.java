@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 public class HostController {
 
-    public static void main(String[] args) {
+    public void hostController() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Type your user:");
@@ -35,7 +35,7 @@ public class HostController {
         attend(driver);
     }
 
-    public static ChromeOptions optionsChrome() {
+    public ChromeOptions optionsChrome() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("disable-infobars");
@@ -46,7 +46,7 @@ public class HostController {
         return options;
     }
 
-    public static void login(WebDriver driver, UserHostDTO userHostDTO) {
+    public void login(WebDriver driver, UserHostDTO userHostDTO) {
         try {
             WebElement loggin = driver.findElement(By.id("UserName"));
             WebElement password = driver.findElement(By.id("Password"));
@@ -61,7 +61,7 @@ public class HostController {
         }
     }
 
-    public static void attend(WebDriver driver) {
+    public void attend(WebDriver driver) {
         WebElement calendar = driver.findElement(By.className("ui-datepicker-calendar"));
         List<WebElement> businessDays = calendar.findElements(By.cssSelector("tbody td a.ui-state-default"));
 
