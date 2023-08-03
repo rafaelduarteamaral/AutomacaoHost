@@ -11,7 +11,7 @@ Biblioteca Selenium </br>
 Como Usar </br>
 Clone o repositório: git clone https://github.com/rafaelduarteamaral/AutomacaoHost.git </br>
 Acesse o diretório do projeto: cd AutomacaoHost </br>
-Execute o projeto através do Maven: mvn test </br>
+Instale as dependencias: mvn clean install </br>
 Contribuindo </br>
 Contribuições são bem-vindas! Se você quiser colaborar, siga os passos abaixo: </br></br>
 
