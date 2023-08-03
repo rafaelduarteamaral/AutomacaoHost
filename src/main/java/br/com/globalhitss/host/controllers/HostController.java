@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class HostController {
 
@@ -29,10 +30,14 @@ public class HostController {
         userHostDTO.setUser(user);
         userHostDTO.setPassword(passwordKey);
 
+        String pathToChromeDriver = "chromedriver_win32/chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", pathToChromeDriver);
         WebDriver driver = new ChromeDriver(optionsChrome());
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://host.globalhitss.com/");
         login(driver, userHostDTO);
         attend(driver);
+        driver.quit();
     }
 
     public ChromeOptions optionsChrome() {
@@ -42,6 +47,7 @@ public class HostController {
         options.addArguments("--disable-extensions");
         options.addArguments("--disable-gpu");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
         options.addArguments("--no-sandbox");
         return options;
     }
